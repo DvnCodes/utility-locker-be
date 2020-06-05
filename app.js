@@ -4,8 +4,7 @@ const cors = require("cors");
 const mongoose = require("mongoose");
 const apiRouter = require("./routes/api.router");
 
-const mongoDB =
-  "mongodb+srv://dan:N0rthC0ders@cluster0-uasos.mongodb.net/utility_locker?retryWrites=true&w=majority";
+const mongoDB = process.env.MONGODB_URI;
 mongoose.connect(mongoDB, { useNewUrlParser: true, useUnifiedTopology: true });
 
 const db = mongoose.connection;
