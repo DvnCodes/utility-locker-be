@@ -31,7 +31,7 @@ describe("/api/products", () => {
   });
 });
 
-describe.only("/api/products?sortby=type", () => {
+describe("/api/products?sortby=type", () => {
   it("GET 200: responds with an array of all products, sorted by type", () => {
     return request(app)
       .get("/api/products?sortby=type")
@@ -41,12 +41,11 @@ describe.only("/api/products?sortby=type", () => {
   });
 });
 
-describe.only("/api/products?sortby=type", () => {
+describe("/api/products?sortby=type", () => {
   it("GET 200: responds with an array of all products, sorted by type and descending by price in each group", () => {
     return request(app)
       .get("/api/products?sortby=type&price=desc")
       .then((response) => {
-        console.log(response.body);
         expect(response.body).to.be.sortedBy("type", "price", {
           descending: true,
         });
